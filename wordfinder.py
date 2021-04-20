@@ -14,14 +14,15 @@ class WordFinder:
 
     def __init__(self, filepath):
         """Accepts a filepath to a text file containing words"""
-        self.file = open(filepath, 'r')
-        self.words = list(self.file)
-        self.length = len(self.words)
-        print(f"{self.length} words read")
+        self.words = self.word_clean_up(filepath)
+        print(f"{len(self.words)} words read")
 
     def random(self):
         """Returns a random word from the file"""
         
-        word = choice(self.words)
+        return choice(self.words)
         
-        return word[0: len(word) - 1]
+    def word_clean_up(self, filepath):
+        """removes new linecharacters from file object"""
+        words = list(open(filepath, 'r'))
+        return [word[0: len(word) - 1] for word in words]
