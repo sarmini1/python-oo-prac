@@ -28,7 +28,7 @@ class SerialGenerator:
         #increment counter_value by 1
         #return total_value
 
-    #create method called reset that resets counter and total
+    #create method called reset that resets counter
     #back to the initial value
 
     #creates class instance from a single passed-in parameter
@@ -40,10 +40,14 @@ class SerialGenerator:
     #method declares its own variable for the total value, equal to starting value + counter_value
     #increments counter value and returns the total
     def generate(self):
+        """Returns current serial number and increments by 1
+        """
         total_value = self.counter_value + self.start
         self.counter_value += 1
         return total_value
     
     #resets counter value back to 0
     def reset(self):
+        """Resets the serial number generator back to the initial value
+        """
         self.counter_value = 0
